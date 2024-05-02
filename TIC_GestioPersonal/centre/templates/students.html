@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professorat</title>
+</head>
+<body>
+    {% include "head/header.html" %}
+    <h1>INFORMACIÓ ALUMNAT TIC BARCELONA </h1>
+
+    <table>
+        <tr>
+            <td><h2>ID</h2></td>
+            <td><h2>NOM</h2></td>
+            <td><h2>COGNOMS</h2></td>
+        </tr>
+
+        {% for alumne in alumnes %}
+        <tr>
+            <td><p>{{alumne.id }}</p></td>
+            <td><p>{{alumne.nom }}</p></td>
+            <td><p>{{alumne.cognom1}} {{alumne.cognom2}}</p></td>
+            
+            
+            <td><a href= "{% url 'student' alumne.id  %}">+INFO</a></td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+    
+</body>
+</html>
+
+

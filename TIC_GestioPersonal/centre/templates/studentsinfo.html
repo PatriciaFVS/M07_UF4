@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professorat</title>
+    <style>
+        body{
+            font-family: 
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    {% include "head/header.html" %}
+    <h1>INFORMACIÓ ALUMNE TIC BARCELONA</h1>
+
+    <table>
+        <tr style="font-weight: bold;">
+            <td >ID</td>
+            <td >NOM</td>
+            <td >COGNOMS</td>
+            <td >CORREU</td>
+            <td >CURS</td>
+            <td >MÓDULS</td>
+            
+        </tr>
+
+       
+        <tr >
+            <td><p>{{ alumne.id }}</p></td>
+            <td><p>{{ alumne.nom }}</p></td>
+            <td><p>{{ alumne.cognom1 }} {{ alumne.cognom2 }}</p></td>
+            <td><p>{{ alumne.correu }}</p></td>
+            <td><p>{{ alumne.curs }}</p></td>
+            <td><p>{{ alumne.moduls }}</p></td>
+            
+            
+        </tr>
+       
+    </table>
+    
+    <a href= "{% url 'estudiant' %}">Go back</a>
+</body>
+</html>
+
