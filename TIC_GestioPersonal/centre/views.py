@@ -38,6 +38,7 @@ def infoEstudiant(request,id):
 
 def formulariUsuaris(request):
     form=UsuariForm()
+    
     if request.method=='POST':
         form=UsuariForm(request.POST)
         if form.is_valid():
@@ -53,4 +54,26 @@ def index(request):
     return render(request,'formInfo.html',{'usuaris': usuari})
 
 
+def formulariUpdate(request, id):
+    user=models.Usuari.objects.get(id=id)
+    form=UsuariForm(instance=user)
+    
+    if request.method=='POST':
+        form=UsuariForm(request.POST,instance=user)
+        if form.is_valid():
+            form.save()
+            return redirect('showForm')
+        
+    else:
+        form = UsuariForm(instance=user)
+    
+    context={'form':form,'usuari':user}
+    return render(request,'formUpdate.html',context)
 
+def eliminaRegistre(request,id):
+    user = models.Usuari.objects.get(id =id)
+    if request.method=='POST':
+        user.delete()
+        return redirect('showForm')
+    context={'object': user}
+    return render(request,'formDelete.html', context)

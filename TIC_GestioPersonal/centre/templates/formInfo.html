@@ -24,13 +24,12 @@
             <td><p>{{ usuari.cognom }}</p></td>
             <td><p>{{ usuari.assignatures }}</p></td>
             <td><p>{{ usuari.rol }}</p></td>
+            <td> <a href="{% url 'actualitza' usuari.id %}">EDIT</a>  </td>
+            <td> <a href="{% url 'elimina' usuari.id %}">DELETE</a>  </td>
         
         {% endfor %}
             
         </tr>
-        
-    </table>
-    
-    
+    </table>   
 </body>
 </html>
